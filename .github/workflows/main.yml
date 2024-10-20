@@ -18,3 +18,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install --file pom.xml
+    - name: Login AWS
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1  
